@@ -8,16 +8,14 @@ import com.warps.segunda_evaluacion.segunda_evaluacion.model.Paciente;
 
 @Repository
 public class PacienteRepositoryImpl implements MyCrudRepository<Paciente> {
-    List<Paciente> pacientes;
+    List<Paciente> pacientes = new java.util.ArrayList<>();
 
     public PacienteRepositoryImpl() {
-        this.pacientes = List.of(
-            new Paciente(1L, "Matias", "Trossero", "39504881", "matias.trossero.1@gmail.com"),
-            new Paciente(2L, "Juan", "Perez", "12345678", "juan.perez@mail.com"),
-            new Paciente(3L, "Ana", "Gomez", "87654321", "ana.gomez@mail.com"),
-            new Paciente(4L, "Luis", "Martinez", "11223344", "luis.martinez@mail.com"),
-            new Paciente(5L, "Maria", "Lopez", "44332211", "maria.lopez@mail.com")
-        );
+        pacientes.add(new Paciente(1L, "Matias", "Trossero", "39504881", "matias.trossero.1@gmail.com"));
+        pacientes.add(new Paciente(2L, "Juan", "Perez", "12345678", "juan.perez@mail.com"));
+        pacientes.add(new Paciente(3L, "Ana", "Gomez", "87654321", "ana.gomez@mail.com"));
+        pacientes.add(new Paciente(4L, "Luis", "Martinez", "11223344", "luis.martinez@mail.com"));
+        pacientes.add(new Paciente(5L, "Maria", "Lopez", "44332211", "maria.lopez@mail.com"));
     }
 
     @Override
