@@ -9,4 +9,5 @@ public interface ProfesionalService {
     Profesional findById(Long id);
     void deleteById(Long id);
     List<Profesional> findAll();
+    List<Profesional> findBySpec(String spec);
 }

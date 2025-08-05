@@ -45,4 +45,7 @@ public class ProfesionalRepositoryImpl implements MyCrudRepository<Profesional> 
         return profesionales;
     }
 
+    public List<Profesional> findBySpec(String spec) {
+        return profesionales.stream().filter(p -> p.getEspecialidad().equals(spec)).toList();
+    }
 }

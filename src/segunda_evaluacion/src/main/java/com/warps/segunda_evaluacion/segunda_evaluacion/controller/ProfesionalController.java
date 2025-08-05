@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.warps.segunda_evaluacion.segunda_evaluacion.model.Profesional;
 import com.warps.segunda_evaluacion.segunda_evaluacion.service.ProfesionalService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/profesionales")
@@ -21,8 +23,13 @@ public class ProfesionalController {
     ProfesionalService profesionalService;
 
     @GetMapping
-    public List<Profesional> findAll() {
-        return profesionalService.findAll();
+    public List<Profesional> findAll(@RequestParam(required = false) String spec) {
+        if(spec == null){
+            return profesionalService.findAll();
+        }
+        else{
+            return profesionalService.findBySpec(spec);
+        }
     }
     
     @GetMapping("/{id}")
@@ -30,6 +37,7 @@ public class ProfesionalController {
         // Si el id no es válido, se lanza una excepción
         return profesionalService.findById(id);
     }
+    
     
     @PostMapping
     public Profesional save(@RequestBody Profesional entity) {

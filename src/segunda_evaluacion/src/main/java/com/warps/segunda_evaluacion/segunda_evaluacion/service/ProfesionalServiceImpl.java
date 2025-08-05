@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.warps.segunda_evaluacion.segunda_evaluacion.model.Profesional;
-import com.warps.segunda_evaluacion.segunda_evaluacion.repository.MyCrudRepository;
+import com.warps.segunda_evaluacion.segunda_evaluacion.repository.ProfesionalRepositoryImpl;
 
 @Service
 public class ProfesionalServiceImpl implements ProfesionalService {
     @Autowired
-    MyCrudRepository<Profesional> profesionalRepository;
+    ProfesionalRepositoryImpl profesionalRepository;
 
     @Override
     public Profesional save(Profesional profesional) {
@@ -37,5 +37,13 @@ public class ProfesionalServiceImpl implements ProfesionalService {
     public List<Profesional> findAll() {
         // Si no existen profesionales (lista vacía), se lanza una excepción
         return (List<Profesional>)profesionalRepository.findAll();
+    }
+
+    @Override 
+    public List<Profesional> findBySpec(String spec){
+        // Al estar utilizando una implementación concreta
+        // Estoy generando un acoplamiento entre el servicio y una implementación
+        // Esto es algo a corregir
+        return profesionalRepository.findBySpec(spec);
     }
 }
