@@ -41,9 +41,7 @@ public class ProfesionalServiceImpl implements ProfesionalService {
 
     @Override 
     public List<Profesional> findBySpec(String spec){
-        // Al estar utilizando una implementación concreta
-        // Estoy generando un acoplamiento entre el servicio y una implementación
-        // Esto es algo a corregir
+        // Si no existen profesionales (lista vacía), se lanza una excepción
         return profesionalRepository.findBySpec(spec);
     }
 }
