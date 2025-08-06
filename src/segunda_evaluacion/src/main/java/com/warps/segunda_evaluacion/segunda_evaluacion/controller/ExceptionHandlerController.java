@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import com.warps.segunda_evaluacion.segunda_evaluacion.dto.ExceptionDTO;
 import com.warps.segunda_evaluacion.segunda_evaluacion.exception.DatoInvalidoException;
@@ -13,7 +14,12 @@ import com.warps.segunda_evaluacion.segunda_evaluacion.exception.RecursoNoEncont
 
 @ControllerAdvice
 public class ExceptionHandlerController {
-    @ExceptionHandler(DatoInvalidoException.class)
+    @ExceptionHandler(
+        {
+            DatoInvalidoException.class,
+            MethodArgumentTypeMismatchException.class
+        }
+    )
     public ResponseEntity<ExceptionDTO> datoInvalidoException(Exception e){
         ExceptionDTO response = new ExceptionDTO();
         response.setMessage(e.getMessage());
