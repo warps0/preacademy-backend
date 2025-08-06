@@ -3,10 +3,13 @@ package com.warps.segunda_evaluacion.segunda_evaluacion.repository;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.warps.segunda_evaluacion.segunda_evaluacion.model.Paciente;
 import com.warps.segunda_evaluacion.segunda_evaluacion.model.Profesional;
 import com.warps.segunda_evaluacion.segunda_evaluacion.model.Turno;
 
+@Repository
 public class TurnoRepositoryImpl implements TurnoRepository {
     List<Turno> turnos = new java.util.ArrayList<>();
 
@@ -31,6 +34,7 @@ public class TurnoRepositoryImpl implements TurnoRepository {
         turnos.add(new Turno(3L, juan, robert, LocalDate.of(2025, 8, 7)));
         turnos.add(new Turno(4L, ana, mario, LocalDate.of(2025, 8, 13)));
         turnos.add(new Turno(5L, luis, jose, LocalDate.of(2025, 10, 9)));
+        turnos.add(new Turno(6L, juan, nick, LocalDate.of(2025, 10, 9)));
     }
 
     @Override
