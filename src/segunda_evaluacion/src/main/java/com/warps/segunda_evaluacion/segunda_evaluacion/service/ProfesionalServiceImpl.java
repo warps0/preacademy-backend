@@ -6,12 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.warps.segunda_evaluacion.segunda_evaluacion.model.Profesional;
-import com.warps.segunda_evaluacion.segunda_evaluacion.repository.ProfesionalRepositoryImpl;
+import com.warps.segunda_evaluacion.segunda_evaluacion.repository.ProfesionalRepository;
 
 @Service
 public class ProfesionalServiceImpl implements ProfesionalService {
     @Autowired
-    ProfesionalRepositoryImpl profesionalRepository;
+    ProfesionalRepository profesionalRepository;
 
     @Override
     public Profesional save(Profesional profesional) {

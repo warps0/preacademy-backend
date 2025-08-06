@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.warps.segunda_evaluacion.segunda_evaluacion.model.Profesional;
 
 @Repository
-public class ProfesionalRepositoryImpl implements MyCrudRepository<Profesional> {
+public class ProfesionalRepositoryImpl implements ProfesionalRepository {
     List<Profesional> profesionales = new java.util.ArrayList<>();
 
     public ProfesionalRepositoryImpl() {
