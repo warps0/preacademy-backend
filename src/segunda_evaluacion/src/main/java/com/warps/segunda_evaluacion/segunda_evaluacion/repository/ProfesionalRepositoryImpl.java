@@ -45,6 +45,7 @@ public class ProfesionalRepositoryImpl implements ProfesionalRepository {
         return profesionales;
     }
 
+    @Override
     public List<Profesional> findBySpec(String spec) {
         return profesionales.stream().filter(p -> p.getEspecialidad().equals(spec)).toList();
     }
