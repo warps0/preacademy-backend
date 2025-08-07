@@ -42,11 +42,16 @@ public class ProfesionalRepositoryImpl implements ProfesionalRepository {
     @Override
     public Iterable<Profesional> findAll() {
         // Implementación para encontrar todos los Profesionales
+        if(profesionales.isEmpty()) return null;
         return profesionales;
     }
 
     @Override
     public List<Profesional> findBySpec(String spec) {
-        return profesionales.stream().filter(p -> p.getEspecialidad().equals(spec)).toList();
+        List<Profesional> especialistas = profesionales.stream().filter(p -> p.getEspecialidad().equals(spec)).toList();
+
+        if(especialistas.isEmpty()) return null;
+
+        return especialistas;
     }
 }
