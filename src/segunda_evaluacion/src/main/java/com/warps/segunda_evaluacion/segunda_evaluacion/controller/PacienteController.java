@@ -42,9 +42,7 @@ public class PacienteController {
             throw new DatoInvalidoException("Se debe proveer un valor de id a buscar");
         }
 
-        Paciente paciente = pacienteService.findById(id.get());
-
-        return paciente;
+        return pacienteService.findById(id.get());
     }
     
     @PostMapping
@@ -54,8 +52,17 @@ public class PacienteController {
     }
     
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable Long id) {
+    public void delete(@PathVariable Optional<Long> id) {
         // Si el id no es válido, se lanza una excepción
-        pacienteService.deleteById(id);
+        if(id.isPresent()){
+            if(id.get() < 0) {
+                throw new DatoInvalidoException("El valor de ID debe ser mayor o igual a 0");
+            }
+        }
+        else {
+            throw new DatoInvalidoException("Se debe proveer un valor de id a buscar");
+        }
+        
+        pacienteService.deleteById(id.get());
     }
 }
